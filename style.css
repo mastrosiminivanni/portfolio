@@ -161,19 +161,57 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
-/* Timeline */
-.timeline-item {
-  padding: 16px 0;
-  border-bottom: 1px solid var(--border);
+/* About */
+.highlight {
+  font-size: 1.15rem;
+  color: var(--text);
+  border-left: 3px solid var(--accent-2);
+  padding-left: 16px;
+  margin-top: 24px;
 }
 
-.timeline-item:last-child { border-bottom: none; }
-
-.timeline-item h3 {
-  margin: 0 0 4px;
+/* Skills */
+.subhead {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin: 32px 0 16px;
 }
 
-.timeline-item .date {
+.subhead:first-of-type { margin-top: 0; }
+
+.note {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 24px;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+}
+
+.tools-grid li {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.tools-grid li:hover {
+  border-color: var(--accent-2);
+  transform: translateY(-2px);
+}
+
+.tools-grid strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.tools-grid span {
   font-size: 0.85rem;
   color: var(--text-muted);
 }
@@ -199,13 +237,86 @@ nav a:hover {
 }
 
 .project-card h3 {
-  margin-top: 0;
+  margin: 8px 0 0;
+}
+
+.project-card p {
+  margin-bottom: 0;
 }
 
 .project-card a {
   color: var(--accent-2);
   text-decoration: none;
   font-weight: 600;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-2);
+  background: rgba(0, 229, 255, 0.1);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+/* Method */
+.method-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.method-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.method-step h3 {
+  margin: 0 0 4px;
+}
+
+.method-step p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.step-num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #08090d;
+  font-weight: 700;
+}
+
+/* Bilancio */
+.bilancio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.bilancio-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.bilancio-card .step-num {
+  margin-bottom: 12px;
+}
+
+.bilancio-card p {
+  margin: 0;
+  color: var(--text-muted);
 }
 
 /* Contact */
