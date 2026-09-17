@@ -86,19 +86,19 @@
 <section class="stats reveal">
   <div class="container stats-grid">
     <div class="stat">
-      <span class="stat-num">1.353</span>
+      <span class="stat-num" data-target="1353" data-format="it">0</span>
       <span class="stat-label">Follower Space92</span>
     </div>
     <div class="stat">
-      <span class="stat-num">10K+</span>
+      <span class="stat-num" data-target="10" data-suffix="K+">0</span>
       <span class="stat-label">View in 2 giorni, zero ADV</span>
     </div>
     <div class="stat">
-      <span class="stat-num">6</span>
+      <span class="stat-num" data-target="6">0</span>
       <span class="stat-label">Progetti attivi</span>
     </div>
     <div class="stat">
-      <span class="stat-num">01</span>
+      <span class="stat-num" data-target="1" data-pad="2">00</span>
       <span class="stat-label">Primo anno ITS</span>
     </div>
   </div>
@@ -363,6 +363,47 @@ var revealObserver = new IntersectionObserver(function (entries) {
 document.querySelectorAll('.reveal').forEach(function (el) {
   revealObserver.observe(el);
 });
+
+function formatStatValue(value, el) {
+  var pad = el.getAttribute('data-pad');
+  var format = el.getAttribute('data-format');
+  var suffix = el.getAttribute('data-suffix') || '';
+  var text = String(value);
+  if (pad) text = text.padStart(Number(pad), '0');
+  if (format === 'it') text = value.toLocaleString('it-IT');
+  return text + suffix;
+}
+
+function animateStat(el) {
+  var target = Number(el.getAttribute('data-target'));
+  var duration = 1400;
+  var start = null;
+
+  function step(timestamp) {
+    if (start === null) start = timestamp;
+    var progress = Math.min((timestamp - start) / duration, 1);
+    var eased = 1 - Math.pow(1 - progress, 3);
+    var current = Math.round(eased * target);
+    el.textContent = formatStatValue(current, el);
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
+  }
+
+  requestAnimationFrame(step);
+}
+
+var statsObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.stat-num[data-target]').forEach(animateStat);
+      statsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.4 });
+
+var statsSection = document.querySelector('.stats');
+if (statsSection) statsObserver.observe(statsSection);
 
 var projectData = {
   space92: {
