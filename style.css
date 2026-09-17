@@ -440,8 +440,9 @@ nav a:hover {
 
 /* Projects */
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
   perspective: 1200px;
 }
@@ -451,6 +452,8 @@ nav a:hover {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 24px;
+  flex: 1 1 240px;
+  max-width: 340px;
   transition: border-color 0.2s, transform 0.15s ease-out, box-shadow 0.15s ease-out;
   transform-style: preserve-3d;
   will-change: transform;
