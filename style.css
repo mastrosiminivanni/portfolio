@@ -91,6 +91,17 @@ nav a:hover {
   color: var(--accent-2);
 }
 
+.hero-photo {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 25%;
+  border: 2px solid var(--accent-2);
+  box-shadow: 0 0 24px rgba(0, 229, 255, 0.35);
+  margin-bottom: 20px;
+}
+
 /* Hero */
 .hero {
   padding: 120px 0 80px;
