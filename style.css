@@ -414,13 +414,23 @@ nav a:hover {
 }
 
 /* Projects */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
+.scroll-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
-.projects-grid {
+.projects-pin {
+  overflow: hidden;
+  padding: 8px 0 40px;
+}
+
+.projects-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  padding: 0 24px;
   perspective: 1200px;
 }
 
@@ -429,6 +439,8 @@ nav a:hover {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 24px;
+  width: 320px;
+  flex-shrink: 0;
   transition: border-color 0.2s, transform 0.15s ease-out, box-shadow 0.15s ease-out;
   transform-style: preserve-3d;
   will-change: transform;

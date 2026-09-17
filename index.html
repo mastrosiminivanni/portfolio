@@ -147,7 +147,10 @@
 <section id="projects" class="section reveal">
   <div class="container">
     <h2>Progetti</h2>
-    <div class="projects-grid">
+    <p class="scroll-hint">Scorri giù ↓</p>
+  </div>
+  <div class="projects-pin">
+    <div class="projects-track">
       <div class="project-card">
         <span class="tag">in corso</span>
         <h3>Space92</h3>
@@ -272,6 +275,8 @@
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
 document.querySelectorAll('.project-card').forEach(function (card) {
   var maxTilt = 8;
@@ -302,6 +307,32 @@ var revealObserver = new IntersectionObserver(function (entries) {
 document.querySelectorAll('.reveal').forEach(function (el) {
   revealObserver.observe(el);
 });
+
+if (window.gsap && window.ScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger);
+
+  var track = document.querySelector('.projects-track');
+  var pinWrap = document.querySelector('.projects-pin');
+
+  if (track && pinWrap && window.matchMedia('(min-width: 768px)').matches) {
+    var getScrollDistance = function () {
+      return track.scrollWidth - pinWrap.clientWidth;
+    };
+
+    gsap.to(track, {
+      x: function () { return -getScrollDistance(); },
+      ease: 'none',
+      scrollTrigger: {
+        trigger: pinWrap,
+        start: 'top top+=80',
+        end: function () { return '+=' + getScrollDistance(); },
+        scrub: 1,
+        pin: true,
+        invalidateOnRefresh: true
+      }
+    });
+  }
+}
 </script>
 
 </body>
