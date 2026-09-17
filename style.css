@@ -318,6 +318,9 @@ nav a:hover {
 }
 
 .tools-grid li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -330,12 +333,23 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
-.tools-grid strong {
-  display: block;
-  margin-bottom: 4px;
+.tool-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: var(--text);
 }
 
-.tools-grid span {
+.tool-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.tools-grid strong {
+  margin-bottom: 2px;
+}
+
+.tools-grid span span {
   font-size: 0.85rem;
   color: var(--text-muted);
 }
