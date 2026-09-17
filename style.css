@@ -1,13 +1,19 @@
 :root {
-  --bg: #050505;
-  --bg-alt: #0d0d0d;
-  --card: #121212;
-  --text: #f5f5f5;
-  --text-muted: #8a8a8a;
-  --accent: #ffffff;
-  --accent-2: #d6d6d6;
-  --border: #262626;
-  --radius: 4px;
+  --bg: #fff8f0;
+  --bg-alt: #f3e8ff;
+  --tint-lavender: #efe6ff;
+  --tint-mint: #e2f8ee;
+  --tint-peach: #ffe9dd;
+  --tint-sky: #e3f3fb;
+  --card: #ffffff;
+  --text: #2b2640;
+  --text-muted: #746c8c;
+  --accent: #ff8a65;
+  --accent-2: #7fd1ae;
+  --accent-3: #8ecddd;
+  --accent-4: #ffcf6b;
+  --border: #e8dcff;
+  --radius: 18px;
   --max-width: 960px;
 }
 
@@ -19,7 +25,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Arial, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
@@ -43,8 +49,9 @@ body {
 }
 
 h1, h2, h3 {
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .container {
@@ -58,7 +65,7 @@ h1, h2, h3 {
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: rgba(5, 5, 5, 0.85);
+  background: rgba(255, 248, 240, 0.85);
   backdrop-filter: blur(8px);
   z-index: 10;
 }
@@ -71,10 +78,11 @@ h1, h2, h3 {
 }
 
 .logo {
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  font-size: 0.95rem;
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent);
 }
 
 nav a {
@@ -98,8 +106,8 @@ nav a:hover {
   border-radius: 50%;
   object-fit: cover;
   object-position: center 25%;
-  border: 2px solid var(--accent-2);
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.25);
+  border: 4px solid var(--card);
+  box-shadow: 0 0 0 4px var(--accent-4), 0 12px 24px rgba(43, 38, 64, 0.15);
   margin-bottom: 20px;
 }
 
@@ -109,7 +117,10 @@ nav a:hover {
   text-align: left;
   border-bottom: 1px solid var(--border);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 60%);
+    radial-gradient(circle at 15% 20%, var(--tint-peach), transparent 45%),
+    radial-gradient(circle at 85% 10%, var(--tint-mint), transparent 40%),
+    radial-gradient(circle at 60% 90%, var(--tint-sky), transparent 45%),
+    var(--bg-alt);
   position: relative;
   overflow: hidden;
 }
@@ -119,11 +130,13 @@ nav a:hover {
   position: absolute;
   top: -0.3em;
   right: -0.05em;
+  font-family: "Fraunces", Georgia, serif;
   font-size: clamp(4rem, 14vw, 11rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -0.02em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
+  -webkit-text-stroke: 1.5px rgba(43, 38, 64, 0.08);
   white-space: nowrap;
   pointer-events: none;
   z-index: 0;
@@ -135,14 +148,14 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: 3.25rem;
+  font-size: 3.5rem;
   line-height: 1.1;
   margin-bottom: 12px;
-  text-transform: uppercase;
 }
 
 .hero h1 span {
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  font-style: italic;
+  background: linear-gradient(90deg, var(--accent), var(--accent-4));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -150,7 +163,7 @@ nav a:hover {
 
 .subtitle {
   font-size: 1.1rem;
-  color: var(--text-muted);
+  color: var(--accent);
   margin-bottom: 16px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -171,30 +184,35 @@ nav a:hover {
 
 .btn {
   padding: 13px 28px;
-  border-radius: var(--radius);
+  border-radius: 999px;
   text-decoration: none;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 0.85rem;
   letter-spacing: 0.04em;
-  transition: opacity 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.btn:hover { opacity: 0.9; }
+.btn:hover { transform: translateY(-2px); }
 
 .btn-primary {
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  color: #08090d;
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.2);
+  background: linear-gradient(90deg, var(--accent), var(--accent-4));
+  color: var(--text);
+  box-shadow: 0 8px 20px rgba(255, 138, 101, 0.35);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 0 32px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 10px 26px rgba(255, 138, 101, 0.5);
 }
 
 .btn-outline {
-  border: 1px solid var(--accent-2);
-  color: var(--accent-2);
+  border: 2px solid var(--text);
+  color: var(--text);
+}
+
+.btn-outline:hover {
+  background: var(--text);
+  color: var(--bg);
 }
 
 /* Stats */
@@ -218,10 +236,16 @@ nav a:hover {
 
 .stat-num {
   display: block;
-  font-size: 2.25rem;
-  font-weight: 800;
-  color: var(--accent-2);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-style: italic;
 }
+
+.stat:nth-child(1) .stat-num { color: var(--accent); }
+.stat:nth-child(2) .stat-num { color: var(--accent-2); }
+.stat:nth-child(3) .stat-num { color: var(--accent-3); }
+.stat:nth-child(4) .stat-num { color: #e08fd0; }
 
 .stat-label {
   display: block;
@@ -238,21 +262,23 @@ nav a:hover {
   counter-increment: section;
 }
 
-.section.alt {
-  background: var(--bg-alt);
-}
+.section.tint-lavender { background: var(--tint-lavender); }
+.section.tint-mint { background: var(--tint-mint); }
+.section.tint-peach { background: var(--tint-peach); }
+.section.tint-sky { background: var(--tint-sky); }
 
 .section h2 {
-  font-size: 1.6rem;
-  text-transform: uppercase;
+  font-size: 1.9rem;
+  font-style: italic;
   margin-bottom: 24px;
   padding-bottom: 12px;
-  border-bottom: 2px solid var(--accent-2);
+  border-bottom: 3px solid var(--accent);
   display: inline-block;
 }
 
 .section h2::before {
   content: "0" counter(section) " — ";
+  font-style: normal;
   color: var(--text-muted);
   font-weight: 400;
 }
@@ -381,8 +407,8 @@ nav a:hover {
 }
 
 .project-card:hover {
-  border-color: var(--accent-2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  border-color: var(--accent);
+  box-shadow: 0 20px 40px rgba(43, 38, 64, 0.15);
 }
 
 /* Keyring (hero) */
@@ -395,7 +421,7 @@ nav a:hover {
   max-width: 640px;
   border-radius: 2px;
   background: linear-gradient(90deg, transparent, var(--accent-2), var(--accent), transparent);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 12px rgba(255, 138, 101, 0.3);
 }
 
 .keyring-charms {
@@ -420,7 +446,7 @@ nav a:hover {
 }
 
 .charm-link:hover .keychain-charm {
-  filter: drop-shadow(0 16px 26px rgba(255, 255, 255, 0.4));
+  filter: drop-shadow(0 16px 26px rgba(255, 138, 101, 0.45));
 }
 
 .keychain-charm {
@@ -489,10 +515,10 @@ nav a:hover {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-weight: 700;
-  color: var(--accent-2);
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius);
+  color: #cc5f3e;
+  background: rgba(255, 138, 101, 0.15);
+  border: 1px solid rgba(255, 138, 101, 0.35);
+  border-radius: 999px;
   padding: 4px 10px;
 }
 
