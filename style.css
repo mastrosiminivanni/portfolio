@@ -4,10 +4,10 @@
   --card: #ffffff;
   --text: #3a2f2a;
   --text-muted: #8a7b70;
-  --accent: #ff8a65;
-  --accent-2: #e0a458;
-  --accent-3: #d9805f;
-  --accent-4: #f2b880;
+  --accent: #4fa8d8;
+  --accent-2: #6ec6dd;
+  --accent-3: #3d8bbd;
+  --accent-4: #a8dced;
   --border: #ecdfd0;
   --radius: 18px;
   --max-width: 960px;
@@ -129,7 +129,7 @@ nav a:hover {
   font-size: 0.8rem;
   padding: 10px 16px;
   border-radius: 999px;
-  box-shadow: 0 8px 18px rgba(255, 138, 101, 0.4);
+  box-shadow: 0 8px 18px rgba(79, 168, 216, 0.4);
   transform: rotate(-6deg);
   white-space: nowrap;
 }
@@ -149,8 +149,8 @@ nav a:hover {
   text-align: left;
   border-bottom: 1px solid var(--border);
   background:
-    radial-gradient(circle at 15% 20%, rgba(255, 138, 101, 0.12), transparent 45%),
-    radial-gradient(circle at 85% 10%, rgba(242, 184, 128, 0.16), transparent 40%),
+    radial-gradient(circle at 15% 20%, rgba(79, 168, 216, 0.12), transparent 45%),
+    radial-gradient(circle at 85% 10%, rgba(168, 220, 237, 0.16), transparent 40%),
     var(--bg-alt);
   position: relative;
   overflow: hidden;
@@ -229,11 +229,11 @@ nav a:hover {
 .btn-primary {
   background: linear-gradient(90deg, var(--accent), var(--accent-4));
   color: var(--text);
-  box-shadow: 0 8px 20px rgba(255, 138, 101, 0.35);
+  box-shadow: 0 8px 20px rgba(79, 168, 216, 0.35);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 10px 26px rgba(255, 138, 101, 0.5);
+  box-shadow: 0 10px 26px rgba(79, 168, 216, 0.5);
 }
 
 .btn-outline {
@@ -449,7 +449,7 @@ nav a:hover {
   max-width: 640px;
   border-radius: 2px;
   background: linear-gradient(90deg, transparent, var(--accent-2), var(--accent), transparent);
-  box-shadow: 0 0 12px rgba(255, 138, 101, 0.3);
+  box-shadow: 0 0 12px rgba(79, 168, 216, 0.3);
 }
 
 .keyring-charms {
@@ -474,7 +474,7 @@ nav a:hover {
 }
 
 .charm-link:hover .keychain-charm {
-  filter: drop-shadow(0 16px 26px rgba(255, 138, 101, 0.45));
+  filter: drop-shadow(0 16px 26px rgba(79, 168, 216, 0.45));
 }
 
 .keychain-charm {
@@ -543,9 +543,9 @@ nav a:hover {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-weight: 700;
-  color: #cc5f3e;
-  background: rgba(255, 138, 101, 0.15);
-  border: 1px solid rgba(255, 138, 101, 0.35);
+  color: #2f6f93;
+  background: rgba(79, 168, 216, 0.15);
+  border: 1px solid rgba(79, 168, 216, 0.35);
   border-radius: 999px;
   padding: 4px 10px;
 }
