@@ -23,6 +23,7 @@ body {
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
+  counter-reset: section;
 }
 
 .reveal {
@@ -104,11 +105,33 @@ nav a:hover {
 
 /* Hero */
 .hero {
-  padding: 120px 0 80px;
+  padding: 100px 0 56px;
   text-align: left;
   border-bottom: 1px solid var(--border);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 60%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "PORTFOLIO";
+  position: absolute;
+  top: -0.3em;
+  right: -0.05em;
+  font-size: clamp(4rem, 14vw, 11rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
@@ -211,7 +234,8 @@ nav a:hover {
 
 /* Sections */
 .section {
-  padding: 72px 0;
+  padding: 56px 0;
+  counter-increment: section;
 }
 
 .section.alt {
@@ -225,6 +249,12 @@ nav a:hover {
   padding-bottom: 12px;
   border-bottom: 2px solid var(--accent-2);
   display: inline-block;
+}
+
+.section h2::before {
+  content: "0" counter(section) " — ";
+  color: var(--text-muted);
+  font-weight: 400;
 }
 
 /* Skills */
@@ -338,7 +368,7 @@ nav a:hover {
 
 /* Keyring (hero) */
 .keyring {
-  margin-top: 56px;
+  margin-top: 40px;
 }
 
 .keyring-bar {
@@ -449,23 +479,25 @@ nav a:hover {
 
 /* Method */
 .method-steps {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
 }
 
 .method-step {
   display: flex;
-  gap: 20px;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .method-step h3 {
-  margin: 0 0 4px;
+  margin: 0;
+  font-size: 1rem;
 }
 
 .method-step p {
   margin: 0;
+  font-size: 0.9rem;
   color: var(--text-muted);
 }
 
