@@ -355,25 +355,22 @@ nav a:hover {
 }
 
 .charm-link:hover {
-  transform: translateY(-6px) scale(1.06);
+  transform: translateY(-8px) scale(1.12);
   transition: transform 0.25s ease-out;
 }
 
 .charm-link:hover .keychain-charm {
-  animation: flick 0.55s cubic-bezier(.36, .07, .19, .97) infinite;
-  filter: drop-shadow(0 14px 22px rgba(0, 229, 255, 0.5));
-}
-
-.charm-link:active .keychain-charm {
-  animation: spinBurst 0.5s ease-out 1;
+  filter: drop-shadow(0 16px 26px rgba(0, 229, 255, 0.55));
 }
 
 .keychain-charm {
-  width: 84px;
-  height: 84px;
+  width: 140px;
+  height: 140px;
   object-fit: contain;
+  opacity: 1;
   transform-origin: top center;
   filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.5));
+  transition: filter 0.25s ease-out;
   animation:
     dropIn 0.7s cubic-bezier(.34, 1.56, .64, 1) calc(var(--i, 0) * 0.12s) both,
     swing var(--dur, 3.2s) ease-in-out calc(0.7s + var(--i, 0) * 0.12s) infinite;
@@ -404,23 +401,9 @@ nav a:hover {
   50% { transform: rotate(var(--amp, 7deg)); }
 }
 
-@keyframes flick {
-  0% { transform: rotate(-7deg); }
-  25% { transform: rotate(20deg); }
-  50% { transform: rotate(-16deg); }
-  75% { transform: rotate(12deg); }
-  100% { transform: rotate(-7deg); }
-}
-
-@keyframes spinBurst {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.15); }
-  100% { transform: rotate(360deg) scale(1); }
-}
-
 @media (max-width: 600px) {
   .keyring-charms { gap: 16px; }
-  .keychain-charm { width: 64px; height: 64px; }
+  .keychain-charm { width: 96px; height: 96px; }
 }
 
 .project-card h3 {
