@@ -64,7 +64,7 @@
   </div>
 </section>
 
-<section class="stats">
+<section class="stats reveal">
   <div class="container stats-grid">
     <div class="stat">
       <span class="stat-num">1.353</span>
@@ -85,7 +85,7 @@
   </div>
 </section>
 
-<section id="about" class="section">
+<section id="about" class="section reveal">
   <div class="container">
     <h2>Chi sono</h2>
     <p>Sono al primo anno di Digital Media Specialist all'ITS Apulia Digital Maker. Fuori dall'aula gestisco l'Instagram di un negozio di abbigliamento, scrivo e produco spot fatti interamente con l'intelligenza artificiale, e ho scritto i testi e costruito il sito di un prodotto software.</p>
@@ -93,7 +93,7 @@
   </div>
 </section>
 
-<section id="skills" class="section alt">
+<section id="skills" class="section alt reveal">
   <div class="container">
     <h2>Cosa so fare</h2>
     <h3 class="subhead">Le mani in pasta</h3>
@@ -119,7 +119,7 @@
   </div>
 </section>
 
-<section id="projects" class="section">
+<section id="projects" class="section reveal">
   <div class="container">
     <h2>Progetti</h2>
     <div class="projects-grid">
@@ -160,7 +160,7 @@
   </div>
 </section>
 
-<section id="method" class="section alt">
+<section id="method" class="section alt reveal">
   <div class="container">
     <h2>Come faccio un video con l'AI</h2>
     <div class="method-steps">
@@ -204,7 +204,7 @@
   </div>
 </section>
 
-<section id="now" class="section">
+<section id="now" class="section reveal">
   <div class="container">
     <h2>Adesso</h2>
     <p>Ho appena iniziato a seguire i social di un'attività che ne contiene tre: un ingrosso di abbigliamento, il negozio al dettaglio e un B&amp;B. Tre pubblici diversi sotto lo stesso nome — la prima cosa da costruire non è un post, è una linea di contenuti che li tenga insieme senza confonderli.</p>
@@ -212,7 +212,7 @@
   </div>
 </section>
 
-<section id="bilancio" class="section alt">
+<section id="bilancio" class="section alt reveal">
   <div class="container">
     <h2>Quattro cose che ho capito</h2>
     <div class="bilancio-grid">
@@ -236,7 +236,7 @@
   </div>
 </section>
 
-<section id="contact" class="section">
+<section id="contact" class="section reveal">
   <div class="container">
     <h2>Contatti</h2>
     <p>Resto qui per le domande sui singoli lavori.</p>
@@ -269,6 +269,19 @@ document.querySelectorAll('.project-card').forEach(function (card) {
   card.addEventListener('mouseleave', function () {
     card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
   });
+});
+
+var revealObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+
+document.querySelectorAll('.reveal').forEach(function (el) {
+  revealObserver.observe(el);
 });
 </script>
 
