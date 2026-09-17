@@ -495,7 +495,7 @@ nav a:hover {
 }
 
 .project-card.open .project-details.has-media {
-  max-height: 500px;
+  max-height: 620px;
 }
 
 .project-details p {
@@ -505,6 +505,8 @@ nav a:hover {
 .project-video {
   display: block;
   width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
   border-radius: calc(var(--radius) - 8px);
   margin-top: 4px;
   background: #000;
@@ -749,15 +751,26 @@ nav a:hover {
   margin: -32px -32px 20px;
   border-radius: var(--radius) var(--radius) 0 0;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background: #000;
 }
 
-.modal-media img,
-.modal-media video {
+.modal-media img {
   display: block;
   width: 100%;
   max-height: 320px;
   object-fit: cover;
-  background: #000;
+}
+
+.modal-media video {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 70vh;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
 }
 
 .modal-tag {
