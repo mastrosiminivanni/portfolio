@@ -439,44 +439,10 @@ nav a:hover {
 }
 
 /* Projects */
-.scroll-hint {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.projects-pin {
-  display: flex;
-  align-items: center;
-  min-height: 70vh;
-  overflow: hidden;
-  padding: 8px 0 40px;
-}
-
-@media (max-width: 767px) {
-  .projects-pin {
-    min-height: 0;
-    align-items: stretch;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 20px;
-  }
-
-  .project-card {
-    scroll-snap-align: start;
-    width: 82vw;
-    max-width: 320px;
-  }
-}
-
-.projects-track {
-  display: flex;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 24px;
-  width: max-content;
-  padding: 0 24px;
   perspective: 1200px;
 }
 
@@ -485,8 +451,6 @@ nav a:hover {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 24px;
-  width: 320px;
-  flex-shrink: 0;
   transition: border-color 0.2s, transform 0.15s ease-out, box-shadow 0.15s ease-out;
   transform-style: preserve-3d;
   will-change: transform;
@@ -495,6 +459,43 @@ nav a:hover {
 .project-card:hover {
   border-color: var(--accent);
   box-shadow: 0 20px 40px rgba(43, 38, 64, 0.15);
+}
+
+.project-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--accent-3);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toggle-arrow {
+  transition: transform 0.25s ease-out;
+}
+
+.project-card.open .toggle-arrow {
+  transform: rotate(180deg);
+}
+
+.project-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out;
+}
+
+.project-card.open .project-details {
+  max-height: 260px;
+}
+
+.project-details p {
+  margin: 12px 0 0;
 }
 
 /* Keyring (hero) */
