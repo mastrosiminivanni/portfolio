@@ -494,8 +494,20 @@ nav a:hover {
   max-height: 260px;
 }
 
+.project-card.open .project-details.has-media {
+  max-height: 500px;
+}
+
 .project-details p {
   margin: 12px 0 0;
+}
+
+.project-video {
+  display: block;
+  width: 100%;
+  border-radius: calc(var(--radius) - 8px);
+  margin-top: 4px;
+  background: #000;
 }
 
 /* Keyring (hero) */
