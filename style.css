@@ -537,6 +537,11 @@ nav a:hover {
   align-items: center;
   gap: 6px;
   text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
 }
 
 .charm-link:hover {
@@ -686,6 +691,93 @@ nav a:hover {
 .bilancio-card p {
   margin: 0;
   color: var(--text-muted);
+}
+
+/* Project modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 23, 18, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease-out;
+  z-index: 100;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  position: relative;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 32px;
+  max-width: 520px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  transform: translateY(16px) scale(0.97);
+  transition: transform 0.25s ease-out;
+}
+
+.modal-overlay.open .modal {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-alt);
+  color: var(--text);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-media {
+  margin: -32px -32px 20px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden;
+}
+
+.modal-media img,
+.modal-media video {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  background: #000;
+}
+
+.modal-tag {
+  margin-bottom: 12px;
+}
+
+.modal h3 {
+  margin: 0 0 12px;
+}
+
+.modal-desc {
+  color: var(--text-muted);
+  margin: 0 0 20px;
+}
+
+.modal-link {
+  display: inline-block;
+  color: var(--accent-3);
+  font-weight: 700;
+  text-decoration: none;
 }
 
 /* Contact */

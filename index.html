@@ -46,30 +46,41 @@
     <div class="keyring">
       <div class="keyring-bar"></div>
       <div class="keyring-charms">
-        <a href="https://www.instagram.com/space92_teresa/" target="_blank" rel="noopener" class="charm-link" title="Space92" style="--i:0; --amp:9deg; --dur:2.8s">
+        <button type="button" class="charm-link" title="Space92" data-project="space92" style="--i:0; --amp:9deg; --dur:2.8s">
           <img src="images/keychain-space92.png" alt="Portachiavi Space92" class="keychain-charm">
           <span class="charm-label">Space92</span>
-        </a>
-        <a href="https://www.buildyouragent.it/" target="_blank" rel="noopener" class="charm-link" title="bya — Lumentic" style="--i:1; --amp:6deg; --dur:3.4s">
+        </button>
+        <button type="button" class="charm-link" title="bya — Lumentic" data-project="bya" style="--i:1; --amp:6deg; --dur:3.4s">
           <img src="images/keychain-bya.png" alt="Portachiavi bya" class="keychain-charm">
           <span class="charm-label">bya</span>
-        </a>
-        <a href="#projects" class="charm-link" title="PugliaPromozione" style="--i:2; --amp:10deg; --dur:3.0s">
+        </button>
+        <button type="button" class="charm-link" title="PugliaPromozione" data-project="puglia" style="--i:2; --amp:10deg; --dur:3.0s">
           <img src="images/keychain-pugliapromozione.png" alt="Portachiavi PugliaPromozione" class="keychain-charm">
           <span class="charm-label">PugliaPromozione</span>
-        </a>
-        <a href="#projects" class="charm-link" title="Studio personale" style="--i:3; --amp:5deg; --dur:3.6s">
+        </button>
+        <button type="button" class="charm-link" title="Studio personale" data-project="studio" style="--i:3; --amp:5deg; --dur:3.6s">
           <img src="images/keychain-studio-personale.png" alt="Portachiavi Studio personale" class="keychain-charm">
           <span class="charm-label">Studio personale</span>
-        </a>
-        <a href="https://www.instagram.com/mastrosiministreet_shop/" target="_blank" rel="noopener" class="charm-link" title="Mastrosimini Street Shop" style="--i:4; --amp:7deg; --dur:3.8s">
+        </button>
+        <button type="button" class="charm-link" title="Mastrosimini Street Shop" data-project="streetshop" style="--i:4; --amp:7deg; --dur:3.8s">
           <img src="images/keychain-streetshop.png" alt="Portachiavi Mastrosimini Street Shop" class="keychain-charm">
           <span class="charm-label">Street Shop</span>
-        </a>
+        </button>
       </div>
     </div>
   </div>
 </section>
+
+<div class="modal-overlay" id="projectModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button type="button" class="modal-close" aria-label="Chiudi">&times;</button>
+    <div class="modal-media"></div>
+    <span class="tag modal-tag"></span>
+    <h3 id="modalTitle"></h3>
+    <p class="modal-desc"></p>
+    <a class="modal-link" target="_blank" rel="noopener">Vedi il profilo ↗</a>
+  </div>
+</div>
 
 <section class="stats reveal">
   <div class="container stats-grid">
@@ -350,6 +361,98 @@ var revealObserver = new IntersectionObserver(function (entries) {
 
 document.querySelectorAll('.reveal').forEach(function (el) {
   revealObserver.observe(el);
+});
+
+var projectData = {
+  space92: {
+    tag: 'in corso',
+    title: 'Space92',
+    desc: "Gestisco l'Instagram di un negozio di abbigliamento uomo e donna, da mesi, ogni settimana: piano editoriale, foto e video, caption, pubblicazione, risposta a commenti e messaggi. 1.353 follower, aperto sei giorni su sette.",
+    media: '<img src="images/space92-avatar.jpg" alt="Space92">',
+    link: 'https://www.instagram.com/space92_teresa/',
+    linkLabel: 'Vedi il profilo ↗'
+  },
+  bya: {
+    tag: 'Lumentic, 2026',
+    title: 'bya — Lumentic',
+    desc: "Quattro spot generati con l'AI e il sito completo di bya, un agente che risponde ai messaggi, prende prenotazioni e manda promemoria. Ho scritto le quattro storie di settore, prodotto i video e curato i testi del sito in italiano e inglese.",
+    media: '<img src="images/bya-og.png" alt="bya">',
+    link: 'https://www.buildyouragent.it/',
+    linkLabel: 'Vedi il sito ↗'
+  },
+  puglia: {
+    tag: 'progetto',
+    title: 'PugliaPromozione',
+    desc: "Un video generato interamente con l'AI dove la vera difficoltà non era generare, ma non farsi riconoscere: niente effetti, niente inquadrature impossibili, solo quello che una troupe avrebbe potuto girare davvero.",
+    media: '<video src="images/puglia.mp4" controls preload="none"></video>',
+    link: '',
+    linkLabel: ''
+  },
+  studio: {
+    tag: 'esercizio',
+    title: 'Studio personale',
+    desc: "Nessun cliente, nessuna consegna: volevo capire dove l'AI si rompe, e ho scelto il terreno più difficile — sala da ballo, oro, cristallo, un solo soggetto da tenere coerente inquadratura dopo inquadratura.",
+    media: '<video src="images/studio-personale.mp4" controls preload="none"></video>',
+    link: '',
+    linkLabel: ''
+  },
+  streetshop: {
+    tag: 'in corso',
+    title: 'Mastrosimini Street Shop',
+    desc: "Il profilo Instagram dell'attività di mio padre: abbigliamento uomo venduto da un furgone che gira i mercati settimanali di sei paesi. Lanciato con due reel, oltre 10.000 visualizzazioni in due giorni, zero euro di sponsorizzata.",
+    media: '<img src="images/streetshop-avatar.jpg" alt="Mastrosimini Street Shop">',
+    link: 'https://www.instagram.com/mastrosiministreet_shop/',
+    linkLabel: 'Vedi il profilo ↗'
+  }
+};
+
+var modal = document.getElementById('projectModal');
+var modalMedia = modal.querySelector('.modal-media');
+var modalTag = modal.querySelector('.modal-tag');
+var modalTitle = modal.querySelector('#modalTitle');
+var modalDesc = modal.querySelector('.modal-desc');
+var modalLink = modal.querySelector('.modal-link');
+
+function openModal(key) {
+  var data = projectData[key];
+  if (!data) return;
+  modalMedia.innerHTML = data.media;
+  modalTag.textContent = data.tag;
+  modalTitle.textContent = data.title;
+  modalDesc.textContent = data.desc;
+  if (data.link) {
+    modalLink.href = data.link;
+    modalLink.textContent = data.linkLabel;
+    modalLink.style.display = 'inline-block';
+  } else {
+    modalLink.style.display = 'none';
+  }
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  modalMedia.innerHTML = '';
+}
+
+document.querySelectorAll('.charm-link[data-project]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    openModal(btn.getAttribute('data-project'));
+  });
+});
+
+modal.querySelector('.modal-close').addEventListener('click', closeModal);
+
+modal.addEventListener('click', function (e) {
+  if (e.target === modal) closeModal();
+});
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
 });
 </script>
 
