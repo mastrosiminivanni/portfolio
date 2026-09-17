@@ -340,6 +340,11 @@ nav a:hover {
   color: var(--text);
 }
 
+.tool-icon-logo {
+  border-radius: 20%;
+  object-fit: contain;
+}
+
 .tool-text {
   display: flex;
   flex-direction: column;
