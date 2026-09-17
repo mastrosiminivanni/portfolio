@@ -286,16 +286,23 @@ nav a:hover {
   gap: 24px;
 }
 
+.projects-grid {
+  perspective: 1200px;
+}
+
 .project-card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 24px;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, transform 0.15s ease-out, box-shadow 0.15s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .project-card:hover {
   border-color: var(--accent-2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
 }
 
 .project-thumb {
