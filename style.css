@@ -422,6 +422,9 @@ nav a:hover {
 }
 
 .projects-pin {
+  display: flex;
+  align-items: center;
+  min-height: 70vh;
   overflow: hidden;
   padding: 8px 0 40px;
 }
