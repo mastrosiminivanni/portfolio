@@ -70,7 +70,18 @@ h1, h2, h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   padding: 16px 24px;
+}
+
+nav {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+nav::-webkit-scrollbar {
+  display: none;
 }
 
 .logo {
@@ -83,6 +94,8 @@ h1, h2, h3 {
 
 nav a {
   margin-left: 24px;
+  flex-shrink: 0;
+  white-space: nowrap;
   color: var(--text-muted);
   text-decoration: none;
   font-size: 0.8rem;
@@ -141,6 +154,13 @@ nav a:hover {
   }
   .hero-photo-wrap { justify-self: center; }
   .hero-text { text-align: left; }
+}
+
+@media (max-width: 480px) {
+  .hero-photo { width: 180px; height: 180px; }
+  .hero-badge { left: -8px; font-size: 0.7rem; padding: 8px 12px; }
+  .cta { flex-direction: column; }
+  .btn { text-align: center; }
 }
 
 /* Hero */
@@ -264,6 +284,11 @@ nav a:hover {
 }
 
 .stat:first-child { border-left: none; }
+
+@media (max-width: 600px) {
+  .stat { border-left: none; border-top: 1px solid var(--border); }
+  .stat:first-child { border-top: none; }
+}
 
 .stat-num {
   display: block;
@@ -427,6 +452,24 @@ nav a:hover {
   min-height: 70vh;
   overflow: hidden;
   padding: 8px 0 40px;
+}
+
+@media (max-width: 767px) {
+  .projects-pin {
+    min-height: 0;
+    align-items: stretch;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 20px;
+  }
+
+  .project-card {
+    scroll-snap-align: start;
+    width: 82vw;
+    max-width: 320px;
+  }
 }
 
 .projects-track {
