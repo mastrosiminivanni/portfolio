@@ -168,7 +168,7 @@
   <div class="container">
     <h2>Progetti</h2>
     <div class="projects-grid">
-      <div class="project-card">
+      <div class="project-card" data-href="https://www.instagram.com/space92_teresa/">
         <span class="tag">in corso</span>
         <h3>Space92</h3>
         <button class="project-toggle" aria-expanded="false">
@@ -180,7 +180,7 @@
           <a href="https://www.instagram.com/space92_teresa/" target="_blank" rel="noopener">Vedi il profilo →</a>
         </div>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-href="https://www.buildyouragent.it/">
         <span class="tag">Lumentic, 2026</span>
         <h3>bya — Lumentic</h3>
         <button class="project-toggle" aria-expanded="false">
@@ -192,7 +192,7 @@
           <a href="https://www.buildyouragent.it/" target="_blank" rel="noopener">Vedi il sito →</a>
         </div>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-project="puglia">
         <span class="tag">progetto</span>
         <h3>PugliaPromozione</h3>
         <button class="project-toggle" aria-expanded="false">
@@ -204,7 +204,7 @@
           <p>Un video generato interamente con l'AI dove la vera difficoltà non era generare, ma non farsi riconoscere: niente effetti, niente inquadrature impossibili, solo quello che una troupe avrebbe potuto girare davvero. Sottotitoli in italiano e inglese.</p>
         </div>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-project="studio">
         <span class="tag">esercizio</span>
         <h3>Studio personale</h3>
         <button class="project-toggle" aria-expanded="false">
@@ -216,7 +216,7 @@
           <p>Nessun cliente, nessuna consegna: volevo capire dove l'AI si rompe, e ho scelto il terreno più difficile — un immaginario di fascia alta, sala da ballo, oro, cristallo, un solo soggetto da tenere coerente inquadratura dopo inquadratura.</p>
         </div>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-href="https://www.instagram.com/mastrosiministreet_shop/">
         <span class="tag">in corso</span>
         <h3>Mastrosimini Street Shop</h3>
         <button class="project-toggle" aria-expanded="false">
@@ -327,6 +327,18 @@ document.querySelectorAll('.project-card').forEach(function (card) {
 
   card.addEventListener('mouseleave', function () {
     card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+  });
+});
+
+document.querySelectorAll('.project-card[data-href], .project-card[data-project]').forEach(function (card) {
+  card.classList.add('clickable-card');
+  card.addEventListener('click', function (e) {
+    if (e.target.closest('.project-toggle') || e.target.closest('a')) return;
+    if (card.dataset.href) {
+      window.open(card.dataset.href, '_blank', 'noopener');
+    } else if (card.dataset.project) {
+      openModal(card.dataset.project);
+    }
   });
 });
 

@@ -474,6 +474,10 @@ nav a:hover {
   box-shadow: 0 20px 40px rgba(43, 38, 64, 0.15);
 }
 
+.clickable-card {
+  cursor: pointer;
+}
+
 .project-toggle {
   display: flex;
   align-items: center;
