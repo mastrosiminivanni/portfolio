@@ -530,6 +530,14 @@ nav a:hover {
   margin-top: 40px;
 }
 
+.keyring-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 10px;
+}
+
 .keyring-bar {
   height: 4px;
   max-width: 640px;
@@ -583,15 +591,22 @@ nav a:hover {
 
 .charm-label {
   font-size: 0.7rem;
-  color: var(--text-muted);
+  color: var(--accent-3);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 12px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   text-align: center;
-  transition: color 0.2s;
+  box-shadow: 0 2px 6px rgba(43, 38, 64, 0.1);
+  transition: color 0.2s, border-color 0.2s, transform 0.2s;
 }
 
 .charm-link:hover .charm-label {
-  color: var(--accent-3);
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.06);
 }
 
 @keyframes dropIn {
@@ -665,6 +680,10 @@ nav a:hover {
   height: 72px;
   object-fit: contain;
   align-self: flex-start;
+  padding: 10px;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: 0 6px 16px rgba(43, 38, 64, 0.12);
 }
 
 .method-step h3 {
