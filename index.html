@@ -321,12 +321,32 @@
 </footer>
 
 <script>
-document.querySelectorAll('.project-toggle').forEach(function (btn) {
+var allProjectToggles = document.querySelectorAll('.project-toggle');
+
+function closeProjectCard(otherBtn) {
+  var otherCard = otherBtn.closest('.project-card');
+  var otherDetails = otherCard.querySelector('.project-details');
+  otherBtn.setAttribute('aria-expanded', 'false');
+  otherCard.classList.remove('open');
+  otherBtn.querySelector('span').textContent = 'Leggi di più';
+  otherDetails.style.maxHeight = '0px';
+}
+
+allProjectToggles.forEach(function (btn) {
   var card = btn.closest('.project-card');
   var details = card.querySelector('.project-details');
 
   btn.addEventListener('click', function () {
     var expanded = btn.getAttribute('aria-expanded') === 'true';
+
+    if (!expanded) {
+      allProjectToggles.forEach(function (otherBtn) {
+        if (otherBtn !== btn && otherBtn.getAttribute('aria-expanded') === 'true') {
+          closeProjectCard(otherBtn);
+        }
+      });
+    }
+
     btn.setAttribute('aria-expanded', String(!expanded));
     card.classList.toggle('open', !expanded);
     btn.querySelector('span').textContent = expanded ? 'Leggi di più' : 'Mostra meno';
