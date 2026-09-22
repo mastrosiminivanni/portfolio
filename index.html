@@ -62,6 +62,7 @@
 
     <div class="keyring">
       <p class="keyring-hint">↓ Clicca sui ciondoli, portano ai progetti</p>
+      <div class="keyring-bar"></div>
       <div class="keyring-charms">
         <a href="https://www.instagram.com/space92_teresa/" target="_blank" rel="noopener" class="charm-link" title="Space92" style="--i:0; --amp:9deg; --dur:2.8s">
           <img src="images/keychain-space92.png" alt="Portachiavi Space92" class="keychain-charm" width="280" height="280" loading="lazy">
@@ -383,6 +384,19 @@ var revealObserver = new IntersectionObserver(function (entries) {
 document.querySelectorAll('.reveal').forEach(function (el) {
   revealObserver.observe(el);
 });
+
+var keyringBar = document.querySelector('.keyring-bar');
+var keyringCharms = document.querySelector('.keyring-charms');
+
+function sizeKeyringBar() {
+  if (keyringBar && keyringCharms) {
+    keyringBar.style.width = keyringCharms.getBoundingClientRect().width + 'px';
+  }
+}
+
+sizeKeyringBar();
+window.addEventListener('resize', sizeKeyringBar);
+window.addEventListener('load', sizeKeyringBar);
 
 function formatStatValue(value, el) {
   var pad = el.getAttribute('data-pad');

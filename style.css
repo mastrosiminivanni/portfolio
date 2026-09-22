@@ -452,6 +452,7 @@ nav a:hover {
 .projects-grid {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   justify-content: center;
   gap: 24px;
   perspective: 1200px;
@@ -534,26 +535,18 @@ nav a:hover {
   margin: 0 0 10px;
 }
 
-.keyring-charms {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  width: fit-content;
-  max-width: 100%;
-  gap: 24px;
-  padding-top: 20px;
-}
-
-.keyring-charms::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+.keyring-bar {
   height: 4px;
   border-radius: 2px;
   background: linear-gradient(90deg, transparent, var(--accent-2), var(--accent), transparent);
   box-shadow: 0 0 12px rgba(79, 168, 216, 0.3);
+}
+
+.keyring-charms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-top: 20px;
 }
 
 .charm-link {
